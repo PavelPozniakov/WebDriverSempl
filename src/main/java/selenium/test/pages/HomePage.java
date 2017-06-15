@@ -2,21 +2,19 @@ package selenium.test.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import selenium.test.webtestsbase.ElementActions;
 
-/**
- * This page is a page object example.
- */
-public class YouTubePage extends BasePage {
+public class HomePage extends BasePage {
 
-    private static final String PAGE_URL = "http://youtube.com";
+    private static final String PAGE_URL = "https://www.bgames.com.ua/";
 
     @FindBy(css = "#masthead-search button")
     private WebElement searchButtonElement;
 
-    @FindBy(css = "#masthead-search-term")
+    @FindBy(xpath = ".//input[@id=\"masthead-search-term\"]")
     private WebElement searchStringElement;
 
-    public YouTubePage() {
+    public HomePage() {
         super(true);
     }
 
@@ -30,34 +28,23 @@ public class YouTubePage extends BasePage {
         return searchStringElement.isDisplayed();
     }
 
-    /**
-     * inserts search text in search string
-     * @param text text for input
-     */
+ /*   public boolean isElementPresent() {
+        return ElementActions.isElementPresent(searchStringElement);
+    }*/
+
     public void insertSearchString(String text) {
         searchStringElement.sendKeys(text);
     }
 
-    /**
-     * perform search
-     * @return results page instance
-     */
-    public YouTubeSearchResultsPage doSearch(){
+    public SearchResultsPage doSearch(){
         searchButtonElement.click();
-        return new YouTubeSearchResultsPage();
+        return new SearchResultsPage();
     }
 
-    /**
-     * clears search string
-     */
     private void clearSearchString(){
         searchStringElement.clear();
     }
 
-    /**
-     * getting search string text
-     * @return text from search string
-     */
     public String getSearchStringText(){
         return searchStringElement.getAttribute("value");
     }

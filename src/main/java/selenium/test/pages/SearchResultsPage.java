@@ -7,10 +7,7 @@ import org.openqa.selenium.support.FindBys;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/**
- * This page is a page object example.
- */
-public class YouTubeSearchResultsPage extends BasePage {
+public class SearchResultsPage extends BasePage {
 
     @FindBy(css="#content")
     private WebElement contentElement;
@@ -19,11 +16,11 @@ public class YouTubeSearchResultsPage extends BasePage {
     private List<WebElement> videoElements;
 
 
-    public YouTubeSearchResultsPage(){
+    public SearchResultsPage(){
         super(true);
     }
 
-    public YouTubeSearchResultsPage(boolean openPageByUrl) {
+    public SearchResultsPage(boolean openPageByUrl) {
         super(openPageByUrl);
     }
 

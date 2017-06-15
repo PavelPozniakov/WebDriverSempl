@@ -1,4 +1,4 @@
-package selenium.test;
+package selenium.test.utils;
 
 /**
  * Created by pavelpozniakov on 14.06.17.

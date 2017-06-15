@@ -1,21 +1,15 @@
 package tests;
 
 import selenium.test.webtestsbase.WebDriverFactory;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 
-public class SimpleTest {
+public class SimpleTest extends WebDriverFactory {
 
-    @Before
-    public void beforeTest() {
-        WebDriverFactory.startBrowser();
-    }
-
+    public SimpleTest(String browser) { super(browser); }
 
     @Test
     public void testFillGoogleForm() {
@@ -26,12 +20,6 @@ public class SimpleTest {
         String searchStringText = searchString.getAttribute("value");
         assertTrue("Text from page(" + searchStringText + ") not equals to text from test(" + toSearch + ")",
                 searchStringText.equals(toSearch));
-    }
-
-
-    @After
-    public void afterTest() {
-        WebDriverFactory.finishBrowser();
     }
 
 }
