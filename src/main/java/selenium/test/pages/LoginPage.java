@@ -25,13 +25,7 @@ public class LoginPage extends BasePage {
     }
 
     public void enterLogin(String login) {
-        try {
-            loginInput.clear();
-            loginInput.sendKeys(login);
-            MyLogger.log.info(login + " was entered in input");
-        } catch (Exception e) {
-            MyLogger.log.error("Can not work with login input");
-        }
+        elementActions.enterText(loginInput, login);
     }
 
     public void enterPass(String password) {
