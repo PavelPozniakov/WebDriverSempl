@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import selenium.test.webtestsbase.WebDriverFactory;
 
-
 public class LoginPageTest extends WebDriverFactory {
     public LoginPageTest(String browser) {
         super(browser);

@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-//import selenium.test.pages.HomePage;
 import selenium.test.pages.LoginPage;
 import selenium.test.utils.MyLogger;
 
@@ -29,7 +28,6 @@ import static org.hamcrest.core.Is.is;
 public class WebDriverFactory {
     protected static WebDriver driver;
     protected LoginPage loginPage;
-//    protected HomePage homePage;
 
     public static WebDriver getDriver() {
         if (driver != null) {
@@ -39,8 +37,6 @@ public class WebDriverFactory {
                     "Please call WebDriverFactory.startBrowser() before use this method");
         }
     }
-
-//        private boolean isTestPass = false;
 
         private String browser;
 
@@ -83,7 +79,6 @@ public class WebDriverFactory {
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
             loginPage = new LoginPage(driver);
-            //homePage = new HomePage(driver);
         }
 
         @After
