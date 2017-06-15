@@ -28,10 +28,6 @@ public class HomePage extends BasePage {
         return searchStringElement.isDisplayed();
     }
 
- /*   public boolean isElementPresent() {
-        return ElementActions.isElementPresent(searchStringElement);
-    }*/
-
     public void insertSearchString(String text) {
         searchStringElement.sendKeys(text);
     }

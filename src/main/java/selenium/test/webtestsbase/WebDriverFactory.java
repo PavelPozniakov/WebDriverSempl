@@ -87,7 +87,7 @@ public class WebDriverFactory {
         }
 
 
-  /*      public void checkAC(String message, String actual, String expected) {
+  /**      public void checkAC(String message, String actual, String expected) {
             if (!actual.equals(expected)) {
                 MyLogger.log.error("AC failed: " + message);
             }
@@ -106,5 +106,5 @@ public class WebDriverFactory {
         private void setTestPass() {
             isTestPass = true;
         }
-*/
+   */
 }

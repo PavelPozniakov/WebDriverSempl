@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import selenium.test.webtestsbase.WebDriverFactory;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by pavelpozniakov on 14.06.17.
@@ -38,7 +37,6 @@ public abstract class BasePage {
         boolean isPageOpenedIndicator = isPageOpened();
         while (!isPageOpenedIndicator && secondsCount < WAIT_FOR_PAGE_LOAD_IN_SECONDS) {
             TimeUtils.waitForSeconds(1);
-         //   driver().manage().timeouts().implicityWait(10, TimeUnit.SECONDS);
             secondsCount++;
             isPageOpenedIndicator = isPageOpened();
         }
