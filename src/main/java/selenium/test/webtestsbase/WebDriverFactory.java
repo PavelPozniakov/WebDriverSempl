@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+//import selenium.test.pages.HomePage;
+import selenium.test.pages.LoginPage;
 import selenium.test.utils.MyLogger;
 
 import java.io.File;
@@ -18,13 +20,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
+import static org.hamcrest.core.Is.is;
+
 /**
  * Created by pavelpozniakov on 14.06.17.
  */
 @RunWith(value = Parameterized.class)
 public class WebDriverFactory {
-//    private static final long IMPLICIT_WAIT_TIMEOUT = 5;
-    private static WebDriver driver;
+    protected static WebDriver driver;
+    protected LoginPage loginPage;
+//    protected HomePage homePage;
 
     public static WebDriver getDriver() {
         if (driver != null) {
@@ -76,6 +81,9 @@ public class WebDriverFactory {
 
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+            loginPage = new LoginPage(driver);
+            //homePage = new HomePage(driver);
         }
 
         @After
@@ -87,24 +95,18 @@ public class WebDriverFactory {
         }
 
 
-  /**      public void checkAC(String message, String actual, String expected) {
+        public void checkAC(String message, String actual, String expected) {
             if (!actual.equals(expected)) {
                 MyLogger.log.error("AC failed: " + message);
             }
-            Assert.assertThat(message + "Browser - " + browser + " ScreenShot " + pathToScreenShot, actual, is(expected));
-            setTestPass();
+            Assert.assertThat(message + "Browser - " + browser, actual, is(expected));
         }
 
         public void checkAC(String message, Boolean actual, Boolean expected) {
             if (!(actual == expected)) {
                 MyLogger.log.error("AC failed: " + message);
             }
-            Assert.assertThat(message + "Browser - " + browser + " ScreenShot " + pathToScreenShot, actual, is(expected));
-            setTestPass();
+            Assert.assertThat(message + "Browser - " + browser, actual, is(expected));
         }
 
-        private void setTestPass() {
-            isTestPass = true;
-        }
-   */
 }

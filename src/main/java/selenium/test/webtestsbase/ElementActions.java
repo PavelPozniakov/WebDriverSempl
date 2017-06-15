@@ -9,11 +9,11 @@ import selenium.test.utils.MyLogger;
 /**
  * Created by pavelpozniakov on 15.06.17.
  */
-public class ElementActions extends WebDriverFactory {
+public class ElementActions {
     WebDriver driver;
 
-    public ElementActions(String browser) {
-        super(browser);
+    public ElementActions(WebDriver driver) {
+        this.driver = driver;
     }
 
     public void enterText(String xpathLocator, String text) {
